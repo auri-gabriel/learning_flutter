@@ -10,11 +10,46 @@ class StrikethroughApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Unicode Strikethrough',
-      home: StrikethroughHomePage(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => MainHomePage(),
+        '/strikethrough': (context) => StrikethroughHomePage(),
+        '/mock1': (context) => MockPage(title: 'Mock Page 1'),
+        '/mock2': (context) => MockPage(title: 'Mock Page 2'),
+      },
     );
   }
 }
 
+class MainHomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('Main Home Page')),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              child: Text('Go to Strikethrough Generator'),
+              onPressed: () => Navigator.pushNamed(context, '/strikethrough'),
+            ),
+            ElevatedButton(
+              child: Text('Go to Mock Page 1'),
+              onPressed: () => Navigator.pushNamed(context, '/mock1'),
+            ),
+            ElevatedButton(
+              child: Text('Go to Mock Page 2'),
+              onPressed: () => Navigator.pushNamed(context, '/mock2'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+// Strikethrough Page
 class StrikethroughHomePage extends StatefulWidget {
   @override
   _StrikethroughHomePageState createState() => _StrikethroughHomePageState();
@@ -25,7 +60,6 @@ class _StrikethroughHomePageState extends State<StrikethroughHomePage> {
   String _strikethroughText = '';
 
   String _toStrikethrough(String input) {
-    // Adds Unicode combining long stroke overlay (U+0336) after each character
     return input.split('').map((char) => '$char\u0336').join();
   }
 
@@ -66,6 +100,23 @@ class _StrikethroughHomePageState extends State<StrikethroughHomePage> {
               ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+// Generic Mock Page
+class MockPage extends StatelessWidget {
+  final String title;
+
+  const MockPage({required this.title});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text(title)),
+      body: Center(
+        child: Text('This is $title', style: TextStyle(fontSize: 24)),
       ),
     );
   }
