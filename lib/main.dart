@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:strikethrough_app_flutter/cursive_converter.dart';
 import 'package:strikethrough_app_flutter/generic_mock_page.dart';
 import 'package:strikethrough_app_flutter/strikethrough_home_page.dart';
 
@@ -18,6 +19,7 @@ class StrikethroughApp extends StatelessWidget {
       routes: {
         '/': (context) => const MainHomePage(),
         '/strikethrough': (context) => const StrikethroughHomePage(),
+        '/cursive': (context) => const CursiveConverter(),
         '/mock1': (context) => const MockPage(title: 'Mock Page 1'),
         '/mock2': (context) => const MockPage(title: 'Mock Page 2'),
       },
@@ -42,6 +44,7 @@ class GridScreen extends StatelessWidget {
 
   final List<Map<String, String>> routes = const [
     {'title': 'Strikethrough', 'route': '/strikethrough'},
+    {'title': 'Cursive', 'route': '/cursive'},
     {'title': 'Mock Page 1', 'route': '/mock1'},
     {'title': 'Mock Page 2', 'route': '/mock2'},
   ];
