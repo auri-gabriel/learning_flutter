@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:learning_flutter/emoji_home_page.dart';
-import 'package:learning_flutter/generic_mock_page.dart';
-import 'package:learning_flutter/strikethrough_home_page.dart';
+import 'package:strikethrough_app_flutter/generic_mock_page.dart';
+import 'package:strikethrough_app_flutter/strikethrough_home_page.dart';
 
 void main() {
-  runApp(StrikethroughApp());
+  runApp(const StrikethroughApp());
 }
 
 class StrikethroughApp extends StatelessWidget {
@@ -17,10 +16,10 @@ class StrikethroughApp extends StatelessWidget {
       title: 'Unicode Strikethrough',
       initialRoute: '/',
       routes: {
-        '/': (context) => MainHomePage(),
-        '/strikethrough': (context) => StrikethroughHomePage(),
-        '/emoji': (context) => MockPage(title: 'Mock Page 1'),
-        '/mock2': (context) => MockPage(title: 'Mock Page 2'),
+        '/': (context) => const MainHomePage(),
+        '/strikethrough': (context) => const StrikethroughHomePage(),
+        '/mock1': (context) => const MockPage(title: 'Mock Page 1'),
+        '/mock2': (context) => const MockPage(title: 'Mock Page 2'),
       },
     );
   }
@@ -32,25 +31,50 @@ class MainHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Main Home Page')),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ElevatedButton(
-              child: Text('Go to Strikethrough Generator'),
-              onPressed: () => Navigator.pushNamed(context, '/strikethrough'),
-            ),
-            ElevatedButton(
-              child: Text('Go to Mock Page 1'),
-              onPressed: () => Navigator.pushNamed(context, '/mock1'),
-            ),
-            ElevatedButton(
-              child: Text('Go to Mock Page 2'),
-              onPressed: () => Navigator.pushNamed(context, '/mock2'),
-            ),
-          ],
-        ),
+      appBar: AppBar(title: const Text('Main Home Page')),
+      body: const GridScreen(),
+    );
+  }
+}
+
+class GridScreen extends StatelessWidget {
+  const GridScreen({super.key});
+
+  final List<Map<String, String>> routes = const [
+    {'title': 'Strikethrough', 'route': '/strikethrough'},
+    {'title': 'Mock Page 1', 'route': '/mock1'},
+    {'title': 'Mock Page 2', 'route': '/mock2'},
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: GridView.count(
+        crossAxisCount: 2,
+        mainAxisSpacing: 8,
+        crossAxisSpacing: 8,
+        childAspectRatio: 3 / 2,
+        children:
+            routes.map((item) {
+              return GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, item['route']!);
+                },
+                child: Card(
+                  elevation: 4,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Center(
+                    child: Text(
+                      item['title']!,
+                      style: const TextStyle(fontSize: 18),
+                    ),
+                  ),
+                ),
+              );
+            }).toList(),
       ),
     );
   }
