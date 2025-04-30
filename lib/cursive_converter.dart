@@ -52,6 +52,8 @@ class _CursiveConverterState extends State<CursiveConverter> {
         child: Column(
           children: [
             TextField(
+              maxLines: null,
+              keyboardType: TextInputType.multiline,
               controller: _controller,
               decoration: InputDecoration(labelText: 'Enter text'),
             ),

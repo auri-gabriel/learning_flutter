@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:strikethrough_app_flutter/cursive_converter.dart';
 import 'package:strikethrough_app_flutter/generic_mock_page.dart';
 import 'package:strikethrough_app_flutter/strikethrough_home_page.dart';

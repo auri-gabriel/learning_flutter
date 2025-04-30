@@ -38,6 +38,8 @@ class _StrikethroughHomePageState extends State<StrikethroughHomePage> {
         child: Column(
           children: [
             TextField(
+              maxLines: null,
+              keyboardType: TextInputType.multiline,
               controller: _controller,
               decoration: InputDecoration(labelText: 'Enter text'),
             ),
