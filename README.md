@@ -1,4 +1,4 @@
-# learning_flutter
+# strikethrough_app
 
 A new Flutter project.
 
