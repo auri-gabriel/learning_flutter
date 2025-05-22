@@ -9,7 +9,7 @@ var kColorScheme = ColorScheme.fromSeed(
 
 var kDarkColorScheme = ColorScheme.fromSeed(
   brightness: Brightness.dark,
-  seedColor: Color.fromARGB(255, 86, 24, 140),
+  seedColor: Color.fromARGB(255, 180, 60, 140),
 );
 
 void main() {
@@ -39,6 +39,9 @@ class StrikethroughApp extends StatelessWidget {
           style: ElevatedButton.styleFrom(
             backgroundColor: kDarkColorScheme.primaryContainer,
             foregroundColor: kDarkColorScheme.onPrimaryContainer,
+            shape: ContinuousRectangleBorder(
+              borderRadius: BorderRadiusGeometry.circular(16),
+            ),
           ),
         ),
         inputDecorationTheme: InputDecorationTheme().copyWith(),
@@ -56,6 +59,9 @@ class StrikethroughApp extends StatelessWidget {
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
             backgroundColor: kColorScheme.primaryContainer,
+            shape: ContinuousRectangleBorder(
+              borderRadius: BorderRadiusGeometry.circular(16),
+            ),
           ),
         ),
         textTheme: ThemeData().textTheme.copyWith(
