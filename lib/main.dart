@@ -13,17 +13,22 @@ var kDarkColorScheme = ColorScheme.fromSeed(
 );
 
 void main() {
-  runApp(const MyApp());
+  runApp(const StrikethroughApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class StrikethroughApp extends StatelessWidget {
+  const StrikethroughApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Strikethrough App',
+      title: 'Unicode Converter',
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const HomeScreen(),
+        '/strikethrough': (context) => const StrikethroughConverterScreen(),
+        '/cursive': (context) => const CursiveConverterScreen(),
+      },
       darkTheme: ThemeData.dark().copyWith(
         colorScheme: kDarkColorScheme,
         textTheme: TextTheme().copyWith(),
@@ -64,24 +69,6 @@ class MyApp extends StatelessWidget {
         ),
       ),
       themeMode: ThemeMode.system,
-      home: const StrikethroughApp(),
-    );
-  }
-}
-
-class StrikethroughApp extends StatelessWidget {
-  const StrikethroughApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Unicode Strikethrough',
-      initialRoute: '/',
-      routes: {
-        '/': (context) => const HomeScreen(),
-        '/strikethrough': (context) => const StrikethroughConverterScreen(),
-        '/cursive': (context) => const CursiveConverterScreen(),
-      },
     );
   }
 }
