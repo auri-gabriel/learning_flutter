@@ -1,4 +1,4 @@
-# strikethrough_app
+# unicode_converter
 
 A new Flutter project.
 

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class CursiveConverter extends StatefulWidget {
-  const CursiveConverter({super.key});
+class CursiveConverterScreen extends StatefulWidget {
+  const CursiveConverterScreen({super.key});
 
   @override
-  _CursiveConverterState createState() => _CursiveConverterState();
+  _CursiveConverterScreenState createState() => _CursiveConverterScreenState();
 }
 
-class _CursiveConverterState extends State<CursiveConverter> {
+class _CursiveConverterScreenState extends State<CursiveConverterScreen> {
   final TextEditingController _controller = TextEditingController();
   String _cursiveText = '';
 

@@ -1,4 +1,4 @@
-package com.example.learning_flutter
+package com.example.unicode_converter
 
 import io.flutter.embedding.android.FlutterActivity
 

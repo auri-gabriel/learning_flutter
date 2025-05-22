@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class StrikethroughHomePage extends StatefulWidget {
-  const StrikethroughHomePage({super.key});
+class StrikethroughConverterScreen extends StatefulWidget {
+  const StrikethroughConverterScreen({super.key});
 
   @override
-  _StrikethroughHomePageState createState() => _StrikethroughHomePageState();
+  _StrikethroughConverterScreenState createState() =>
+      _StrikethroughConverterScreenState();
 }
 
-class _StrikethroughHomePageState extends State<StrikethroughHomePage> {
+class _StrikethroughConverterScreenState
+    extends State<StrikethroughConverterScreen> {
   final TextEditingController _controller = TextEditingController();
   String _strikethroughText = '';
 
@@ -32,7 +34,7 @@ class _StrikethroughHomePageState extends State<StrikethroughHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Unicode Strikethrough')),
+      appBar: AppBar(title: Text('Strikethrough')),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
