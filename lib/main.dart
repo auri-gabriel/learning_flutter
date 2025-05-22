@@ -34,7 +34,6 @@ class StrikethroughApp extends StatelessWidget {
         textTheme: TextTheme().copyWith(),
         cardTheme: CardThemeData().copyWith(
           color: kDarkColorScheme.secondaryContainer,
-          margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
@@ -53,7 +52,6 @@ class StrikethroughApp extends StatelessWidget {
         scaffoldBackgroundColor: kColorScheme.surface,
         cardTheme: CardThemeData().copyWith(
           color: kColorScheme.secondaryContainer,
-          margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
